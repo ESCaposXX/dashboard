@@ -1,0 +1,287 @@
+/* ZÁKLADNÍ NASTAVENÍ */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* DASHBOARD KONTEJNER */
+.dashboard-container {
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* HLAVIČKA */
+/* HLAVIČKA */
+.logo {
+  position: flex; /* Umístí obrázek mimo normální tok dokumentu */
+  top: 0px; /* Umístí obrázek na začátek */
+  left: 0px; /* Umístí obrázek úplně doleva */
+  width: 140px; /* Uprav velikost obrázku, jak potřebuješ */
+  height: 70px; /* Zachová poměr stran obrázku */
+  z-index: 100; /* Ujistí se, že obrázek je nad ostatními elementy */
+}
+
+/* Úprava pro header */
+.header {
+  position: relative; /* Dává kontejneru kontext pro absolutní pozicování obrázku */
+  display: flex;
+  justify-content: space-between; /* Tlačítka vedle sebe */
+  align-items: center;
+  background-color: #003366;
+  padding: 20px 40px;
+  color: white;
+  border-radius: 10px;
+  z-index: 1; /* Ujistí se, že header je pod obrázkem */
+}
+
+/* NÁZEV DASHBOARDU */
+.dashboard-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1; /* Tlačítka jsou vedle sebe a nadpis je vycentrován */
+}
+
+/* KONTEJNER PRO TLAČÍTKO (Odhlásit se a Vybrat soubor) */
+.button-container {
+  display: flex; /* Flexbox pro zarovnání tlačítek vedle sebe */
+  gap: 10px; /* Mezery mezi tlačítky */
+  align-items: center; /* Vertikální zarovnání */
+}
+
+/* Základní styl pro všechny tlačítka */
+.common-button {
+  background-color: #ff6f00; /* Oranžová barva */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Inline-flex pro správné zobrazení vedle sebe */
+  align-items: center; /* Vertikálně vycentrování textu uvnitř tlačítka */
+  justify-content: center; /* Vycentrování textu */
+}
+
+/* Hover efekty pro všechna tlačítka */
+.common-button:hover {
+  background-color: #cc5700; /* Tmavší oranžová barva při hoveru */
+}
+
+/* Přizpůsobení pro custom file upload */
+.custom-file-upload {
+  text-align: center;
+}
+
+/* Skrytí standardního inputu pro soubor */
+input[type="file"] {
+  display: none;
+}
+
+/* Kontejner pro filtr */
+/* Kontejner pro filtr */
+.filter-container {
+  display: flex; /* Flexbox pro zajištění zarovnání vedle sebe */
+  align-items: center; /* Vertikální zarovnání na střed */
+  gap: 10px; /* Mezery mezi prvky */
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label pro filtr */
+.filter-container label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-right: 10px; /* Mezery mezi labelem a vstupy */
+}
+
+/* Vstupy pro čísla (týdny) */
+.filter-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 120px; /* Nastavení šířky vstupů */
+}
+
+/* Tlačítko filtru */
+.filter-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff6f00;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-container button:hover {
+  background-color: #cc5700;
+}
+
+/* Responzivní úpravy pro menší obrazovky */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: row; /* Ujistíme se, že zůstanou vedle sebe i na menších obrazovkách */
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .filter-container input,
+  .filter-container button {
+    width: 120px; /* Všechny položky mají stejnou šířku */
+  }
+}
+
+/* GRAFY */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.chart-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+}
+
+.chart-card h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.recharts-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recharts-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* PŘIDÁNÍ ANIMACE PRO GRAFY */
+.chart-card .recharts-wrapper {
+  transition: transform 0.5s ease;
+}
+
+.chart-card:hover .recharts-wrapper {
+  transform: scale(1.05);
+}
+
+/* STATISTIKY KONTEJNER */
+.statistics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Titulky statistik */
+.statistics-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Statistické karty */
+.statistics-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.percentage {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2ecc71; /* Zelená barva pro procenta */
+}
+
+/* Různé typy statistik */
+.manifest-statistics h3 {
+  color: #3498db; /* Modrá pro manifesty */
+}
+
+.instructions-statistics h3 {
+  color: #f39c12; /* Oranžová pro instrukce */
+}
+
+.requests-statistics h3 {
+  color: #e74c3c; /* Červená pro žádosti */
+}
+
+.invoices-statistics h3 {
+  color: #8e44ad; /* Fialová pro faktury */
+}
+
+/* Flexbox pro sloupce */
+.statistics-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  max-width: 100%; /* Zajištění maximální šířky */
+}
+
+.statistics-card {
+  flex: 1 1 calc(33.333% - 20px); /* Karty zabírají 1/3 šířky */
+  max-width: calc(33.333% - 20px); /* Udržuje šířku na 1/3 */
+}
+
+@media (max-width: 1024px) {
+  .statistics-card {
+    flex: 1 1 calc(50% - 20px); /* Karty zabírají 1/2 šířky */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-card {
+    flex: 1 1 100%; /* Karty zabírají 100% šířky */
+    max-width: 100%;
+  }
+
+  .statistics-container > div {
+    flex-direction: column;
+  }
+}
